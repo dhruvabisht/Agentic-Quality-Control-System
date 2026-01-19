@@ -1,0 +1,329 @@
+{
+    "metadata": {
+        "version": "1.0.0",
+        "description": "Sample content for testing Sentinel-AI audit system",
+        "total_samples": 30,
+        "language_distribution": {
+            "english": 12,
+            "hindi": 12,
+            "mixed": 6
+        }
+    },
+    "samples": [
+        {
+            "id": "SAMPLE-001",
+            "language": "english",
+            "content_type": "post",
+            "text": "Just had the best day at the beach! The sunset was absolutely beautiful. 🌅 #blessed #vacation",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Clean content, no policy violations"
+        },
+        {
+            "id": "SAMPLE-002",
+            "language": "english",
+            "content_type": "comment",
+            "text": "People from that country should go back to where they came from. They don't belong here and are ruining everything.",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "hate_speech"
+            ],
+            "notes": "Xenophobic content, calls for exclusion"
+        },
+        {
+            "id": "SAMPLE-003",
+            "language": "english",
+            "content_type": "post",
+            "text": "SHOCKING! Doctors don't want you to know this miracle cure for cancer! Just drink this special water and you'll be cured 100%! Share before they delete this!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "misinformation",
+                "spam"
+            ],
+            "notes": "Health misinformation with engagement bait"
+        },
+        {
+            "id": "SAMPLE-004",
+            "language": "english",
+            "content_type": "comment",
+            "text": "You're such a loser. Nobody likes you and you should just disappear. The world would be better without you.",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "harassment"
+            ],
+            "notes": "Severe personal harassment"
+        },
+        {
+            "id": "SAMPLE-005",
+            "language": "english",
+            "content_type": "ad",
+            "text": "Get RICH QUICK with this one simple trick! Make $10,000 per week from home! Click here to learn the secret that millionaires don't want you to know!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "advertiser_policies",
+                "spam"
+            ],
+            "notes": "Misleading advertising claims"
+        },
+        {
+            "id": "SAMPLE-006",
+            "language": "english",
+            "content_type": "post",
+            "text": "I'm going to find you and make you pay for what you said. You and your family will regret this. I know where you live.",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "graphic_violence",
+                "harassment"
+            ],
+            "notes": "Direct threats of violence"
+        },
+        {
+            "id": "SAMPLE-007",
+            "language": "english",
+            "content_type": "post",
+            "text": "Great recipe for homemade pasta! Here's what you need: flour, eggs, salt, and some olive oil. Mix everything together and let it rest for 30 minutes.",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Clean cooking content"
+        },
+        {
+            "id": "SAMPLE-008",
+            "language": "english",
+            "content_type": "comment",
+            "text": "The election was completely rigged! Millions of fake votes were counted. We need to take action and stop this stolen election!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "misinformation"
+            ],
+            "notes": "Election misinformation"
+        },
+        {
+            "id": "SAMPLE-009",
+            "language": "english",
+            "content_type": "post",
+            "text": "These people are like cockroaches infesting our country. They breed like animals and need to be eliminated from society.",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "hate_speech"
+            ],
+            "notes": "Severe dehumanizing hate speech"
+        },
+        {
+            "id": "SAMPLE-010",
+            "language": "english",
+            "content_type": "post",
+            "text": "My dog learned a new trick today! So proud of this little guy. Training takes patience but it's so worth it! 🐕",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Wholesome pet content"
+        },
+        {
+            "id": "SAMPLE-011",
+            "language": "english",
+            "content_type": "story",
+            "text": "LIKE if you love your mom! SHARE to prove it! Comment your birth month to see what it says about you!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "spam"
+            ],
+            "notes": "Engagement bait"
+        },
+        {
+            "id": "SAMPLE-012",
+            "language": "english",
+            "content_type": "comment",
+            "text": "I respectfully disagree with your opinion. While I understand your perspective, I think there are other factors to consider here.",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Respectful disagreement"
+        },
+        {
+            "id": "SAMPLE-013",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "आज का सूर्यास्त बहुत खूबसूरत था! प्रकृति की सुंदरता देखकर मन खुश हो गया। #sunset #nature",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Clean Hindi content about sunset"
+        },
+        {
+            "id": "SAMPLE-014",
+            "language": "hindi",
+            "content_type": "comment",
+            "text": "ये छोटी जात के लोग हमारी बस्ती में नहीं रह सकते। इनको यहाँ से भगाओ।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "hate_speech"
+            ],
+            "notes": "Caste-based discrimination - severe violation in Indian context"
+        },
+        {
+            "id": "SAMPLE-015",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "ये रामबाण इलाज डॉक्टर नहीं बताते! बस ये पत्ते खाओ और कैंसर 100% ठीक हो जाएगा! शेयर करो वरना डिलीट हो जाएगा!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "misinformation",
+                "spam"
+            ],
+            "notes": "Health misinformation in Hindi"
+        },
+        {
+            "id": "SAMPLE-016",
+            "language": "hindi",
+            "content_type": "comment",
+            "text": "तू बेकार है, तेरी कोई औकात नहीं। मर जा तू, किसी को फर्क नहीं पड़ेगा।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "harassment"
+            ],
+            "notes": "Severe harassment in Hindi"
+        },
+        {
+            "id": "SAMPLE-017",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "मैं तुझे जान से मार दूंगा! तेरा पूरा परिवार देख लेगा। मुझे पता है तू कहाँ रहता है।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "graphic_violence"
+            ],
+            "notes": "Death threats in Hindi"
+        },
+        {
+            "id": "SAMPLE-018",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "आज माँ के हाथ के पराठे खाए। बचपन की यादें ताज़ा हो गईं। 💕 #मातृत्व #घर",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Wholesome family content"
+        },
+        {
+            "id": "SAMPLE-019",
+            "language": "hindi",
+            "content_type": "comment",
+            "text": "EVM में धांधली हुई है! करोड़ों फर्जी वोट डाले गए। चुनाव चोरी हो गया है, सब मिले हुए हैं!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "misinformation"
+            ],
+            "notes": "Election misinformation in Hindi"
+        },
+        {
+            "id": "SAMPLE-020",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "इन लोगों को देश से बाहर निकालो! ये कीड़े-मकोड़े हमारे यहाँ नहीं रह सकते।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "hate_speech"
+            ],
+            "notes": "Dehumanizing hate speech in Hindi"
+        },
+        {
+            "id": "SAMPLE-021",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "बिरयानी बनाने की रेसिपी: चावल, मसाले, सब्जियां। धीमी आंच पर पकाएं। #cooking #biryani",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Recipe content in Hindi"
+        },
+        {
+            "id": "SAMPLE-022",
+            "language": "hindi",
+            "content_type": "ad",
+            "text": "जल्दी अमीर बनो! घर बैठे कमाओ 1 लाख रुपये महीना! ये सीक्रेट अमीर लोग नहीं बताते! अभी क्लिक करो!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "advertiser_policies",
+                "spam"
+            ],
+            "notes": "Get rich quick scheme in Hindi"
+        },
+        {
+            "id": "SAMPLE-023",
+            "language": "hindi",
+            "content_type": "post",
+            "text": "लाइक करो अगर आप भारत से प्यार करते हो! शेयर करो और 5 दोस्तों को टैग करो! आपका जन्म महीना comment करो!",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "spam"
+            ],
+            "notes": "Engagement bait in Hindi"
+        },
+        {
+            "id": "SAMPLE-024",
+            "language": "hindi",
+            "content_type": "comment",
+            "text": "मैं आपकी बात से सहमत नहीं हूं, लेकिन आपकी राय का सम्मान करता हूं। चर्चा अच्छी रही।",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Respectful disagreement in Hindi"
+        },
+        {
+            "id": "SAMPLE-025",
+            "language": "mixed",
+            "content_type": "comment",
+            "text": "Yaar ये लोग are so annoying! Inko देश से बाहर निकालो, they don't belong here।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "hate_speech"
+            ],
+            "notes": "Code-mixed xenophobic content (Hinglish)"
+        },
+        {
+            "id": "SAMPLE-026",
+            "language": "mixed",
+            "content_type": "post",
+            "text": "Today's workout was amazing! पसीना आ गया but it was worth it. Feeling strong! 💪 #fitness",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Clean code-mixed fitness content"
+        },
+        {
+            "id": "SAMPLE-027",
+            "language": "mixed",
+            "content_type": "comment",
+            "text": "Bro मैं तुझे देख लूंगा। I will find you और फिर देखना क्या होता है। You are dead।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "graphic_violence"
+            ],
+            "notes": "Death threats in Hinglish"
+        },
+        {
+            "id": "SAMPLE-028",
+            "language": "mixed",
+            "content_type": "post",
+            "text": "COVID vaccine में chip है bro! Government tracking kar rahi hai सबको। Don't take it! ये सब planning है।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "misinformation"
+            ],
+            "notes": "Vaccine misinformation in Hinglish"
+        },
+        {
+            "id": "SAMPLE-029",
+            "language": "mixed",
+            "content_type": "post",
+            "text": "Just finished reading एक amazing book! The story was so touching, रोना आ गया। Highly recommend! 📚",
+            "expected_verdict": "pass",
+            "expected_violations": [],
+            "notes": "Clean book review in Hinglish"
+        },
+        {
+            "id": "SAMPLE-030",
+            "language": "mixed",
+            "content_type": "comment",
+            "text": "तू कमीना है yaar, nobody likes you। Get lost और मर जा, world will be better without you।",
+            "expected_verdict": "fail",
+            "expected_violations": [
+                "harassment"
+            ],
+            "notes": "Severe harassment in Hinglish"
+        }
+    ]
+}

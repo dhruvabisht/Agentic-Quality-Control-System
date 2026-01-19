@@ -1,0 +1,468 @@
+{
+    "metadata": {
+        "version": "1.0.0",
+        "last_updated": "2026-01-19",
+        "source": "Meta Community Standards (Simulated)",
+        "description": "Policy rules database for Sentinel-AI content moderation"
+    },
+    "policies": {
+        "hate_speech": {
+            "id": "HS-001",
+            "name": "Hate Speech",
+            "description": "Content that attacks people based on protected characteristics",
+            "severity": "high",
+            "action": "remove",
+            "protected_characteristics": [
+                "race",
+                "ethnicity",
+                "national origin",
+                "religious affiliation",
+                "sexual orientation",
+                "caste",
+                "sex",
+                "gender identity",
+                "serious disease",
+                "disability"
+            ],
+            "rules": [
+                {
+                    "rule_id": "HS-001-A",
+                    "name": "Dehumanizing Speech",
+                    "description": "Comparing people to animals, insects, or subhuman beings",
+                    "severity": "critical",
+                    "keywords_en": [
+                        "cockroaches",
+                        "animals",
+                        "vermin",
+                        "subhuman",
+                        "parasites",
+                        "filth"
+                    ],
+                    "keywords_hi": [
+                        "कीड़े",
+                        "जानवर",
+                        "कुत्ते",
+                        "सूअर",
+                        "गंदगी",
+                        "नीच"
+                    ]
+                },
+                {
+                    "rule_id": "HS-001-B",
+                    "name": "Slurs and Epithets",
+                    "description": "Using derogatory terms targeting protected groups",
+                    "severity": "high",
+                    "keywords_en": [
+                        "[REDACTED_SLURS]"
+                    ],
+                    "keywords_hi": [
+                        "[REDACTED_SLURS_HI]"
+                    ]
+                },
+                {
+                    "rule_id": "HS-001-C",
+                    "name": "Calls for Exclusion",
+                    "description": "Advocating for exclusion, segregation, or discrimination",
+                    "severity": "high",
+                    "keywords_en": [
+                        "go back to",
+                        "don't belong",
+                        "should be banned",
+                        "get out"
+                    ],
+                    "keywords_hi": [
+                        "वापस जाओ",
+                        "यहाँ नहीं रहना",
+                        "निकलो",
+                        "भाग जाओ"
+                    ]
+                },
+                {
+                    "rule_id": "HS-001-D",
+                    "name": "Caste-based Discrimination",
+                    "description": "Content promoting caste-based hatred or discrimination (India-specific)",
+                    "severity": "high",
+                    "is_regional": true,
+                    "region": "IN",
+                    "keywords_hi": [
+                        "छोटी जात",
+                        "नीच जात",
+                        "अछूत",
+                        "चमार",
+                        "भंगी"
+                    ]
+                }
+            ],
+            "hindi_variations": {
+                "code_mixing_patterns": [
+                    "ये लोग are so [slur]",
+                    "these [group] को देश से निकालो",
+                    "[group] की औकात नहीं"
+                ],
+                "cultural_contexts": [
+                    "Caste-based discrimination",
+                    "Religious tension references",
+                    "Regional prejudice"
+                ]
+            }
+        },
+        "graphic_violence": {
+            "id": "GV-001",
+            "name": "Graphic Violence",
+            "description": "Content depicting extreme violence or gore",
+            "severity": "high",
+            "action": "remove",
+            "rules": [
+                {
+                    "rule_id": "GV-001-A",
+                    "name": "Explicit Violence Depiction",
+                    "description": "Detailed descriptions of violent acts causing death or serious injury",
+                    "severity": "critical",
+                    "keywords_en": [
+                        "kill them all",
+                        "blood everywhere",
+                        "slaughter",
+                        "massacre",
+                        "murder",
+                        "dismember"
+                    ],
+                    "keywords_hi": [
+                        "मार डालो",
+                        "खून",
+                        "कत्लेआम",
+                        "हत्या",
+                        "काट डालो"
+                    ]
+                },
+                {
+                    "rule_id": "GV-001-B",
+                    "name": "Threats of Violence",
+                    "description": "Direct or implied threats of physical harm",
+                    "severity": "high",
+                    "keywords_en": [
+                        "I will kill",
+                        "going to hurt",
+                        "destroy you",
+                        "beat you up",
+                        "attack"
+                    ],
+                    "keywords_hi": [
+                        "मार दूंगा",
+                        "जान से मार",
+                        "पीट दूंगा",
+                        "तोड़ दूंगा"
+                    ]
+                },
+                {
+                    "rule_id": "GV-001-C",
+                    "name": "Glorification of Violence",
+                    "description": "Praising or celebrating violent acts",
+                    "severity": "high",
+                    "keywords_en": [
+                        "deserved to die",
+                        "justice served",
+                        "should suffer"
+                    ],
+                    "keywords_hi": [
+                        "मरना चाहिए था",
+                        "सबक सिखाया",
+                        "इन्साफ हुआ"
+                    ]
+                }
+            ]
+        },
+        "harassment": {
+            "id": "HR-001",
+            "name": "Harassment and Bullying",
+            "description": "Content that targets individuals with unwanted attention or abuse",
+            "severity": "medium",
+            "action": "warn_then_remove",
+            "rules": [
+                {
+                    "rule_id": "HR-001-A",
+                    "name": "Direct Personal Attacks",
+                    "description": "Insulting or degrading specific individuals",
+                    "severity": "medium",
+                    "keywords_en": [
+                        "you're worthless",
+                        "nobody likes you",
+                        "kill yourself",
+                        "loser",
+                        "pathetic"
+                    ],
+                    "keywords_hi": [
+                        "तू बेकार है",
+                        "तुझसे घृणा",
+                        "मर जा",
+                        "नालायक",
+                        "कमीना"
+                    ]
+                },
+                {
+                    "rule_id": "HR-001-B",
+                    "name": "Doxxing",
+                    "description": "Sharing private information without consent",
+                    "severity": "critical",
+                    "patterns": [
+                        "phone numbers",
+                        "addresses",
+                        "personal photos",
+                        "workplace info"
+                    ]
+                },
+                {
+                    "rule_id": "HR-001-C",
+                    "name": "Coordinated Harassment",
+                    "description": "Organizing groups to target individuals",
+                    "severity": "high",
+                    "keywords_en": [
+                        "let's spam",
+                        "everyone report",
+                        "mass comment",
+                        "raid their page"
+                    ],
+                    "keywords_hi": [
+                        "सबको बताओ",
+                        "रिपोर्ट करो",
+                        "धावा बोलो"
+                    ]
+                }
+            ]
+        },
+        "misinformation": {
+            "id": "MI-001",
+            "name": "Misinformation",
+            "description": "False or misleading information that could cause harm",
+            "severity": "medium",
+            "action": "label_reduce",
+            "rules": [
+                {
+                    "rule_id": "MI-001-A",
+                    "name": "Health Misinformation",
+                    "description": "False claims about medical treatments or diseases",
+                    "severity": "high",
+                    "topics": [
+                        "vaccines",
+                        "COVID-19",
+                        "cancer cures",
+                        "miracle treatments"
+                    ],
+                    "keywords_en": [
+                        "doctors don't want you to know",
+                        "miracle cure",
+                        "vaccines cause",
+                        "100% proven"
+                    ],
+                    "keywords_hi": [
+                        "डॉक्टर नहीं बताते",
+                        "रामबाण इलाज",
+                        "वैक्सीन से",
+                        "गारंटी से"
+                    ]
+                },
+                {
+                    "rule_id": "MI-001-B",
+                    "name": "Election Misinformation",
+                    "description": "False claims about voting or election integrity",
+                    "severity": "critical",
+                    "keywords_en": [
+                        "rigged election",
+                        "fake votes",
+                        "stolen election",
+                        "voting fraud"
+                    ],
+                    "keywords_hi": [
+                        "धांधली",
+                        "फर्जी वोट",
+                        "चुनाव चोरी",
+                        "EVM हैक"
+                    ]
+                },
+                {
+                    "rule_id": "MI-001-C",
+                    "name": "Dangerous Claims",
+                    "description": "Misinformation that could lead to physical harm",
+                    "severity": "high",
+                    "keywords_en": [
+                        "drinking bleach",
+                        "5G causes",
+                        "microchip in vaccine"
+                    ],
+                    "keywords_hi": [
+                        "5G से कोरोना",
+                        "चिप लगा दी",
+                        "पानी में जहर"
+                    ]
+                }
+            ]
+        },
+        "adult_content": {
+            "id": "AC-001",
+            "name": "Adult and Sexual Content",
+            "description": "Sexually explicit or adult-only content",
+            "severity": "medium",
+            "action": "age_restrict_or_remove",
+            "rules": [
+                {
+                    "rule_id": "AC-001-A",
+                    "name": "Explicit Sexual Content",
+                    "description": "Pornographic or sexually explicit material",
+                    "severity": "high",
+                    "keywords_en": [
+                        "[REDACTED]"
+                    ],
+                    "keywords_hi": [
+                        "[REDACTED]"
+                    ]
+                },
+                {
+                    "rule_id": "AC-001-B",
+                    "name": "Sexual Solicitation",
+                    "description": "Offering or requesting sexual services",
+                    "severity": "high",
+                    "patterns": [
+                        "contact for fun",
+                        "looking for hookup",
+                        "paid services"
+                    ]
+                }
+            ]
+        },
+        "spam": {
+            "id": "SP-001",
+            "name": "Spam and Inauthentic Behavior",
+            "description": "Deceptive or repetitive content for engagement manipulation",
+            "severity": "low",
+            "action": "reduce_remove",
+            "rules": [
+                {
+                    "rule_id": "SP-001-A",
+                    "name": "Engagement Bait",
+                    "description": "Content designed to artificially boost engagement",
+                    "severity": "low",
+                    "keywords_en": [
+                        "like if you agree",
+                        "share to win",
+                        "comment your birth month",
+                        "tag 5 friends"
+                    ],
+                    "keywords_hi": [
+                        "लाइक करो अगर",
+                        "शेयर करो जीतो",
+                        "5 दोस्तों को टैग करो"
+                    ]
+                },
+                {
+                    "rule_id": "SP-001-B",
+                    "name": "Clickbait",
+                    "description": "Misleading headlines or thumbnails",
+                    "severity": "low",
+                    "keywords_en": [
+                        "you won't believe",
+                        "shocking truth",
+                        "click here now",
+                        "must see"
+                    ],
+                    "keywords_hi": [
+                        "यकीन नहीं होगा",
+                        "चौंकाने वाला सच",
+                        "अभी देखो"
+                    ]
+                }
+            ]
+        },
+        "advertiser_policies": {
+            "id": "AP-001",
+            "name": "Advertiser Content Policies",
+            "description": "Additional restrictions for monetizable content",
+            "severity": "medium",
+            "action": "demonetize",
+            "rules": [
+                {
+                    "rule_id": "AP-001-A",
+                    "name": "Brand Safety Violations",
+                    "description": "Content unsuitable for advertiser placement",
+                    "severity": "medium",
+                    "topics": [
+                        "controversial politics",
+                        "tragedy exploitation",
+                        "sensitive events"
+                    ]
+                },
+                {
+                    "rule_id": "AP-001-B",
+                    "name": "Misleading Claims",
+                    "description": "False advertising or exaggerated product claims",
+                    "severity": "medium",
+                    "keywords_en": [
+                        "get rich quick",
+                        "lose weight fast",
+                        "guaranteed results",
+                        "miracle product"
+                    ],
+                    "keywords_hi": [
+                        "जल्दी अमीर",
+                        "तुरंत वजन कम",
+                        "गारंटीड रिजल्ट"
+                    ]
+                },
+                {
+                    "rule_id": "AP-001-C",
+                    "name": "Restricted Products",
+                    "description": "Promotion of restricted or prohibited products",
+                    "severity": "high",
+                    "categories": [
+                        "gambling",
+                        "alcohol",
+                        "tobacco",
+                        "weapons",
+                        "adult services"
+                    ]
+                }
+            ]
+        }
+    },
+    "severity_levels": {
+        "low": {
+            "description": "Minor policy concern, may warrant warning",
+            "confidence_threshold": 80,
+            "auto_action": false
+        },
+        "medium": {
+            "description": "Moderate policy violation, review recommended",
+            "confidence_threshold": 70,
+            "auto_action": false
+        },
+        "high": {
+            "description": "Serious policy violation, likely removal",
+            "confidence_threshold": 60,
+            "auto_action": true
+        },
+        "critical": {
+            "description": "Severe violation, immediate action required",
+            "confidence_threshold": 50,
+            "auto_action": true
+        }
+    },
+    "regional_considerations": {
+        "IN": {
+            "name": "India",
+            "languages": [
+                "hi",
+                "en"
+            ],
+            "special_considerations": [
+                "Caste-based discrimination is treated as hate speech",
+                "Religious tension content requires extra scrutiny",
+                "Code-mixing (Hinglish) is common and should be analyzed",
+                "Regional slang may have different connotations"
+            ],
+            "cultural_sensitivities": [
+                "Cow-related content",
+                "Religious figures",
+                "Caste references",
+                "Regional political issues"
+            ]
+        }
+    }
+}
