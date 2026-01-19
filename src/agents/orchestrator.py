@@ -214,6 +214,13 @@ class SentinelOrchestrator:
             if not audit_data:
                 return state
             
+            # Check if database is configured
+            import os
+            db_url = os.getenv("DATABASE_URL")
+            if not db_url:
+                print("⚠️ DATABASE_URL not configured, skipping save")
+                return state
+            
             with get_session() as session:
                 # Map verdict
                 verdict_map = {
@@ -223,7 +230,7 @@ class SentinelOrchestrator:
                 }
                 
                 # Determine language
-                hindi_result = state.get("hindi_result", {})
+                hindi_result = state.get("hindi_result") or {}
                 if hindi_result.get("is_mixed_language"):
                     language = ContentLanguage.MIXED
                 elif hindi_result.get("is_hindi"):
@@ -282,16 +289,11 @@ class SentinelOrchestrator:
                     )
                     session.add(pv)
             
-            return {
-                **state,
-                "error": None
-            }
+            return state
         except Exception as e:
-            print(f"⚠️ Failed to save results: {e}")
-            return {
-                **state,
-                "error": f"Save failed: {str(e)}"
-            }
+            # Don't fail the workflow if save fails - just log and continue
+            print(f"⚠️ Failed to save results (non-fatal): {e}")
+            return state
     
     def _reconstruct_policy_result(self, data: dict) -> PolicyAnalysisResult:
         """Reconstruct PolicyAnalysisResult from dict."""
