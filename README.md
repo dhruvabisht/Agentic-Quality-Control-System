@@ -119,6 +119,27 @@ Sentinel-AI is a full-stack multi-agent system that audits Hindi and English soc
 pytest tests/ -v
 ```
 
+## 🧠 Model Training
+
+Sentinel-AI supports training custom content moderation models using the **LMSYS-Chat-1M** dataset. The training pipeline uses XGBoost with semantic embeddings and linguistic features.
+
+### Train a new model
+
+```bash
+# Authenticate with Huggingface (required for LMSYS dataset)
+huggingface-cli login
+
+# Run training pipeline
+python scripts/train_pipeline.py --sample-size 10000 --use-embeddings
+```
+
+### Features Used
+The model is trained on a rich set of characteristics:
+- **Semantic Embeddings**: `all-MiniLM-L6-v2` (Sentence-BERT)
+- **Sentiment Analysis**: Polarity and Subjectivity scores
+- **Linguistic Signals**: Punctuation density, capitalization ratio
+- **TF-IDF**: Keyword importance vectors
+
 ## 📊 KPI Metrics Tracked
 
 - Audit accuracy rate
